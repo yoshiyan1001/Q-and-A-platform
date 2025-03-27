@@ -58,7 +58,7 @@ GetQuestion() gets the question user wrote.
      */
     public void ActionViewQuestion() throws IOException {
         System.out.println("view question command");
-        writer.println("Write your question. (do not put any whitespaces.)");
+        writer.println("Write your question.");
         String question = GetQuestion();
         if(IsFoundQuestion(question, null)) {
             WriteAccepted();
@@ -91,7 +91,7 @@ GetQuestion() gets the question user wrote.
      */
     public void ActionCreateQuestion() throws IOException {
 
-        writer.println("Write your question title. (do not put any whitespaces.)");
+        writer.println("Write your question title.");
         String question = GetQuestion();
         if(IsFoundQuestion(question, null))
         {
@@ -107,7 +107,7 @@ GetQuestion() gets the question user wrote.
      */
     public void ActionCreateAnswer() throws IOException
     {
-        writer.println("Write your question title you want to answer. (do not put any whitespaces.)");
+        writer.println("Write your question title you want to answer.");
         question = GetQuestion();
         System.out.println(question);
         if(IsFoundQuestion(question, null) && !IsFoundAnswerWithUser(question, user_name))
@@ -124,7 +124,7 @@ GetQuestion() gets the question user wrote.
      */
     public void ActionShowAnswers() throws IOException
     {
-        writer.println("Write your question title for which you want to see answers. (do not put any whitespaces.)");
+        writer.println("Write your question title for which you want to see answers.");
 
         question = GetQuestion();//might be fixed
         System.out.println(question);
@@ -147,13 +147,13 @@ ActionEdit() allows the user to edit either a question or an answer, based on th
         if(isQuestion)
         {
             temp_user_name = user_name;
-            writer.println("Write your question which you want to edit. (do not put any whitespaces.)");
+            writer.println("Write your question which you want to edit.");
             writer.flush();
             question = GetQuestion();
             System.out.println(question+","+temp_user_name);
             if(IsFoundQuestion(question, temp_user_name))
             {
-                System.out.println("Found the vaild question.");
+                System.out.println("Found the valid question.");
                 WriteAccepted();
                 OperateEditAction(question, isQuestion);
                 return;
@@ -162,12 +162,12 @@ ActionEdit() allows the user to edit either a question or an answer, based on th
         }
         else
         {
-            writer.println("Write your question title for which you want to edit the answer. (do not put any whitespaces.)");
+            writer.println("Write your question title for which you want to edit the answer.");
             writer.flush();
             question = GetQuestion();
             if(IsFoundQuestion(question, temp_user_name) && IsFoundAnswerWithUser(question, user_name))
             {
-                System.out.println("Found the vaild question and answer");
+                System.out.println("Found the valid question and answer");
                 WriteAccepted();
                 OperateEditAction(question, isQuestion);
                 return;
@@ -183,11 +183,11 @@ ActionEdit() allows the user to edit either a question or an answer, based on th
         ActionListQuestion();
         if(isQuestion)
         {
-            writer.println("Write a question you want to delete. (do not put any whitespaces.)");
+            writer.println("Write a question you want to delete.");
         }
         else
         {
-            writer.println("Write a question for which you want to delete a answer. (do not put any whitespaces.)");
+            writer.println("Write a question for which you want to delete a answer.");
         }
         question = GetQuestion();
         System.out.println(question);
